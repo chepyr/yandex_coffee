@@ -6,13 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>418</width>
-    <height>441</height>
+    <width>400</width>
+    <height>310</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>250</height>
+   </size>
   </property>
   <property name="font">
    <font>
-    <family>Segoe UI</family>
+    <family>Sitka Text</family>
     <pointsize>11</pointsize>
    </font>
   </property>
@@ -22,13 +28,16 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>381</width>
-     <height>421</height>
+     <x>0</x>
+     <y>0</y>
+     <width>361</width>
+     <height>231</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
     <property name="leftMargin">
      <number>10</number>
     </property>
@@ -41,6 +50,21 @@
     <property name="bottomMargin">
      <number>10</number>
     </property>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Добавить новый элемент</string>
+      </property>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignHCenter">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Чтобы изменить уже существующий элемент,
+ сначала выберите его в списке:</string>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QListWidget" name="listWidget"/>
     </item>

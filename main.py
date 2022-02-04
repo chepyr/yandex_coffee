@@ -1,17 +1,19 @@
 import sys
 import sqlite3
 
-from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QListWidgetItem, QWidget
+from PyQt5.QtWidgets import QApplication, QListWidgetItem, QWidget
+import main_ui
+import about
+import addEditCoffeeForm
 
-DATABASE = sqlite3.connect('coffee.db')
+DATABASE = sqlite3.connect(r'data/coffee.db')
 CURSOR = DATABASE.cursor()
 
 
-class AddEditWindow(QWidget):
+class AddEditWindow(QWidget, addEditCoffeeForm.Ui_Form):
     def __init__(self, info=None, parent_window=None):
         super().__init__()
-        uic.loadUi('addEditCoffeeForm.ui', self)
+        self.setupUi(self)
         self.info = info
         if info is None:
             self.info = ['' for i in range(7)]
@@ -48,10 +50,10 @@ class AddEditWindow(QWidget):
         self.close()
 
 
-class CoffeeWindow(QWidget):
+class CoffeeWindow(QWidget, about.Ui_Form):
     def __init__(self, info=None, parent_window=None):
         super().__init__()
-        uic.loadUi('about.ui', self)
+        self.setupUi(self)
         self.pushButton.clicked.connect(self.edit_coffee)
         self.info = list(info)
         self.align_text()
@@ -84,10 +86,10 @@ class CoffeeWindow(QWidget):
             labels[i].setText(str(self.info[i]))
 
 
-class MainWidget(QMainWindow):
+class MainWidget(QWidget, main_ui.Ui_Form):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
+        self.setupUi(self)
         self.init_ui()
 
     def init_ui(self):
